@@ -6,36 +6,36 @@ echo "Cycling audio sink..."
 sinks=$(pacmd list-sinks | grep "index")
 
 default_i=$(echo "$sinks" | grep "*")
-default_i=$(echo "${default_i: -1}")
-#default_line=$(echo "$SINKS" | grep -n "*" | cut -c1-1) #Index may not be same as line?
+default_i=$(echo "$default_i" | cut -d: -f2)
+default_line_n=$(echo "$sinks" | grep -n "*" | cut -c1-1)
+
 total_sinks=$(echo "$sinks" | wc -l)
 
 echo "sinks:"
 echo "$sinks"
-echo "default_i:"
-echo "$default_i"
-echo "total_sinks:"
-echo "$total_sinks"
+echo "default_i: $default_i"
+echo "default_line_n: $default_line_n"
+echo "total_sinks: $total_sinks"
 
-if [ "$default_i" == "$total_sinks" ]; then
+if [ "$default_line_n" == "$total_sinks" ]; then
 	echo "Wrapping default"
-	default_i=1
+	default_i=$(echo "$sinks" | head -1 | cut -d: -f2)
 else
 	echo "Incrementing default"
-	default_i=$(("$default_i" + 1))
-
+	default_i=$(echo "$sinks" | head -n $(("$default_line_n" + 1)) | tail -1 | cut -d: -f2)
+	echo "new default: $default_i"
 fi
 
-$(pactl set-default-sink "$default_i")
+
+$(pactl set-default-sink $(echo "$default_i"))
 sinks=$(pacmd list-sinks | grep "index")
 	
 echo "sinks:"
 echo "$sinks"
-echo "default_i:"
-echo "$default_i"
+echo "default_i: $default_i"
 
-test=$(pacmd list-sink-inputs | grep "index" | cut -d: -f2)
-echo "$test" | while read -r input ; do
+input_sinks=$(pacmd list-sink-inputs | grep "index" | cut -d: -f2)
+echo "$input_sinks" | while read -r input ; do
 	$(pacmd move-sink-input "$input" "$default_i")
 done
 
