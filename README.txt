@@ -24,6 +24,7 @@ nvidia-smi
 unzip -B (renames)
 
 
+
 -----Tools-----
 pyenv, pip
 python3-pip-autoremove (pip3-autoremove)
@@ -34,7 +35,7 @@ pass
 pavucontrol: (https://shallowsky.com/linux/pulseaudio-command-line.html)
 logiops
 evtest / xev
-
+shellcheck
 youtube-dl:
 ytmdl:
 
