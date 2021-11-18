@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+echo "Cycling audio sink..."
+
+
+sinks=$(pacmd list-sinks | grep "index")
+
+default_i=$(echo "$sinks" | grep "*" | cut -d: -f2)
+default_line_n=$(echo "$sinks" | grep -n "*" | cut -c1-1)
+
+total_sinks=$(echo "$sinks" | wc -l)
+
+echo "sinks:"
+echo "$sinks"
+echo "default_i: $default_i"
+echo "default_line_n: $default_line_n"
+echo "total_sinks: $total_sinks"
+
+if [ "$default_line_n" == "$total_sinks" ]; then
+	echo "Wrapping default"
+	default_i=$(echo "$sinks" | head -1 | cut -d: -f2)
+else
+	echo "Incrementing default"
+	default_i=$(echo "$sinks" | head -n $(("$default_line_n" + 1)) | tail -1 | cut -d: -f2) #need to figure out how to read last line without reading whole input. awk? sed?
+	echo "new default: $default_i"
+fi
+
+
+$(pactl set-default-sink $(echo "$default_i"))
+sinks=$(pacmd list-sinks | grep "index")
+	
+echo "sinks:"
+echo "$sinks"
+echo "default_i: $default_i"
+
+input_sinks=$(pacmd list-sink-inputs | grep "index" | cut -d: -f2)
+echo "$input_sinks" | while read -r input ; do
+	$(pacmd move-sink-input "$input" "$default_i")
+done
+
+echo "Finished."
+
+

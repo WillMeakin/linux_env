@@ -2,7 +2,15 @@ Custom config for LogiOpts (https://github.com/PixlOne/logiops)
 Used with MX MAster 3 and MX Keys
 Place in /etc/logid.cfg
 
-Frome an issue, "MX Keys for Mac" CIDs:
+cat /lib/systemd/system/logid.service 
+cat /etc/logid.cfg
+sudo systemctl enable --now logid
+sudo systemctl restart logid
+evtest, showkey -k, xev
+xmodmap, setxkbmap, xset
+Keysyms for Xmodmap: https://wiki.linuxquestions.org/wiki/List_of_Keysyms_Recognised_by_Xmodmap
+
+From an issue, "MX Keys for Mac" CIDs:
 0xc7: monitor bright down
 0xc8: monitor bright up
 0xe0: window overview

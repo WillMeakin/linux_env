@@ -40,5 +40,5 @@ eval "$(pyenv init --path)"
 
 quicktile --daemonize & disown
 
-ibus-daemon & disown
+ibus-daemon & disown #enable switching keyboard input
 
