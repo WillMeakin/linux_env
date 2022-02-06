@@ -1,43 +1,49 @@
 -----System tools  / setup-----
 Nvidia driver
 Logiops
-Superpaper
 Quicktile
+Superpaper / Hydrapaper
 PA_Cycle_Sink / pavucontrol
-Autokey?
+Autokey -----?-----
 Nautilus
 Laptops: tlp(tlpui)/laptop-mode-tools
-Stacer
-Timeshift (Zotero, Notes, Calibre, Files)
-Gnome-disk-utility / gparted
-Gnome Tweaks
-pyenv, pip, python3-pip-autoremove (pip3-autoremove)
-tldr
+pyenv, pip, python3-pip-autoremove (pip3-autoremove) -----?-----
+tldr -----?-----
 /usr/share/applications/org.gnome.FileRoller.desktop -> Exec=file-roller -h
 Nvidia settings Force Composition Pipeline
+wingpanel-indicator-ayatana
+PavuControl-qt, Pasystray
+Pantheon tweaks (gnome tweaks)
+Dconf-tools
+tlp -----?-----
+gsettings set org.gnome.desktop.privacy remember-recent-files false
+dircolors --print-database, dircolors -p > ~/.dircolors, eval "$(dircolors ~/.dircolors)";
 
 -----Apps-----
-Zotero (Mendely?)
-Calibre
-VLC
-Steam
 Chrome
+Steam
+Zotero (Mendely?)
+VLC
 LibreOffice: Writer/Calc (Impress/Draw?) / OnlyOffice
-Anki
 Simplenote
-Joplin + Typora
+Anki
 Discord
-VSCode, CLion (Edu)
 Calculator (Idle)
-Shellcheck
-Youtube-dl / yt-dlp / ytmdl
+CodeEditor: Elementary Code / Notepadqq
+PDF Arranger
+Gparted / gnome-disk-utility
 Mediainfo
+Youtube-dl / yt-dlp / ytmdl
+Calibre
+Stacer
+Transmission
+VSCode, CLion (Edu)
+Shellcheck
 Music
 Ardour
-PDF Arranger
-CodeEditor: Elementary Code / Notepadqq
 App Outlet
 KDEnlive
+PuddleTag
 
 -----To Do-----
 Append copy/paste
@@ -68,7 +74,6 @@ UHD+Vert (UWQHD?)
 Apps:
 :	Libre Office
 :	Anki
-:	Joplin
 :	Simplenote
 :	Discord
 :	Zotero
@@ -105,20 +110,12 @@ Duplicate Line
 Go word back
 Go word forth
 
------Next install-----
-home partition
-Pip installs to user dir
-System Tray
-	https://www.youtube.com/watch?v=0yOoOyxCQ24
-	https://gist.github.com/inercia/3f11aa96dd80bb1c2056745c8a9b0f7d
-
-
 -----Useful commands / reference-----
 
 dpkg -i *.deb, apt install ./*.deb
 apt [update, upgrade, list [--installed], search, show, [--fix-broken | -f] install, remove, autoremove]
 apt-cache [rdepends]
-tar -xvf file.tar
+tar -xvf file.tar.gz
 df -h
 chmod -x file.exe
 unzip -B (renames)
@@ -130,8 +127,10 @@ startx, xinit
 killall gsd-media-keys
 lsmod
 xev, evtest, showkey
+find / -name '*.desktop'
 sudo fdisk -l
 sudo mkfs.exfat -n LABEL /dev/sdXn
 rfkill list, rfkill unblock bluetooth 
 xmodmap
 Input Event Codes: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+
