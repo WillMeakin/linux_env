@@ -15,7 +15,6 @@ wingpanel-indicator-ayatana
 PavuControl-qt, Pasystray
 Pantheon tweaks (gnome tweaks)
 Dconf-tools
-tlp -----?-----
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 dircolors --print-database, dircolors -p > ~/.dircolors, eval "$(dircolors ~/.dircolors)";
 
@@ -34,6 +33,7 @@ PDF Arranger
 Gparted / gnome-disk-utility
 Mediainfo
 Youtube-dl / yt-dlp / ytmdl
+Puddletag
 Calibre
 Stacer
 Transmission
@@ -43,12 +43,11 @@ Music
 Ardour
 App Outlet
 KDEnlive
-PuddleTag
 
 -----To Do-----
+Logid shortcuts
 Append copy/paste
 Device copy/paste
-Backups system (rsync?)
 Gimp
 
 -----Keyboard Shortcuts-----
@@ -89,7 +88,7 @@ Apps:
 :	Calibre
 
 System:
-Opt+Tab:	Expose
+Opt+`:	Expose
 Alt+Tab:	Cycle Apps
 Ctrl+Up:	Jump up ten lines
 Ctrl+Down:	Jump down ten lines
@@ -111,10 +110,9 @@ Go word back
 Go word forth
 
 -----Useful commands / reference-----
-
 dpkg -i *.deb, apt install ./*.deb
 apt [update, upgrade, list [--installed], search, show, [--fix-broken | -f] install, remove, autoremove]
-apt-cache [rdepends]
+apt-cache [rdepends], policy
 tar -xvf file.tar.gz
 df -h
 chmod -x file.exe
@@ -130,7 +128,8 @@ xev, evtest, showkey
 find / -name '*.desktop'
 sudo fdisk -l
 sudo mkfs.exfat -n LABEL /dev/sdXn
-rfkill list, rfkill unblock bluetooth 
+rfkill list, rfkill unblock all 
 xmodmap
 Input Event Codes: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+uname -r, linux-headers-version-generic
 
