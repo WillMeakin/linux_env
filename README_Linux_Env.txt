@@ -1,4 +1,5 @@
 -----System tools  / setup-----
+build-essential
 Nvidia driver
 Logiops
 Quicktile
@@ -123,13 +124,13 @@ $GDMSESSION
 rm /etc/X11/xorg.conf -> systemctl restart lightdm / sudo restart lightdm
 startx, xinit
 killall gsd-media-keys
-lsmod
-xev, evtest, showkey
+lspci, lsmod, lsb_release
+uname -r, linux-headers-version-generic, /usr/src
+rfkill list, rfkill unblock all 
 find / -name '*.desktop'
+xev, evtest, showkey
 sudo fdisk -l
 sudo mkfs.exfat -n LABEL /dev/sdXn
-rfkill list, rfkill unblock all 
 xmodmap
 Input Event Codes: https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
-uname -r, linux-headers-version-generic
 
